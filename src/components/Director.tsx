@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './Director.css';
 
+import directorImage from '../assets/images/Hellen Maina.png';
+
 const Director = () => {
     return (
         <section className="director-section">
@@ -15,8 +17,8 @@ const Director = () => {
                 >
                     <div className="director-backdrop"></div>
                     <img
-                        src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop"
-                        alt="Hellen Maina - Line Producer"
+                        src={directorImage}
+                        alt="Hellen Maina - Director"
                         className="director-image"
                     />
                 </motion.div>
@@ -30,16 +32,12 @@ const Director = () => {
                 >
                     <span className="director-subtitle">MEET OUR DIRECTOR</span>
                     <h2 className="director-name">HELLEN MAINA</h2>
-                    <h3 className="director-role">LINE PRODUCER</h3>
+                    <h3 className="director-role">DIRECTOR</h3>
 
                     <div className="director-bio">
                         <p>
-                            Behind every successful production is a well-organized and efficient workflow, and that's where Hellen comes in.
-                            As the mastermind behind our logistics, she manages schedules, budgets, and on-set operations to ensure seamless execution.
-                        </p>
-                        <p>
-                            From coordinating talent and crew to securing locations, Hellen's sharp attention to detail and expert problem-solving
-                            keep every project on track, allowing the creative team to focus purely on bringing the vision to life.
+                            With a keen eye for storytelling and a passion for visual excellence, Hellen leads our creative team
+                            in bringing bold visions to life. Her expertise spans across documentaries, commercials, and branded content.
                         </p>
                     </div>
 

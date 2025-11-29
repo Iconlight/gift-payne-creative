@@ -4,6 +4,7 @@ import { useRef } from 'react';
 interface Image {
     src: string;
     alt?: string;
+    isVideo?: boolean;
 }
 
 interface ZoomParallaxProps {
@@ -28,7 +29,7 @@ export function ZoomParallax({ images }: ZoomParallaxProps) {
     return (
         <div ref={container} style={{ position: 'relative', height: '300vh' }}>
             <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden' }}>
-                {images.map(({ src, alt }, index) => {
+                {images.map(({ src, alt, isVideo }, index) => {
                     const scale = scales[index % scales.length];
 
                     const getPositionStyles = (idx: number) => {
@@ -66,15 +67,30 @@ export function ZoomParallax({ images }: ZoomParallaxProps) {
                                     ...getPositionStyles(index),
                                 }}
                             >
-                                <img
-                                    src={src || '/placeholder.svg'}
-                                    alt={alt || `Parallax image ${index + 1}`}
-                                    style={{
-                                        width: '100%',
-                                        height: '100%',
-                                        objectFit: 'cover',
-                                    }}
-                                />
+                                {isVideo ? (
+                                    <video
+                                        src={src}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'cover',
+                                        }}
+                                    />
+                                ) : (
+                                    <img
+                                        src={src || '/placeholder.svg'}
+                                        alt={alt || `Parallax image ${index + 1}`}
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'cover',
+                                        }}
+                                    />
+                                )}
                             </div>
                         </motion.div>
                     );

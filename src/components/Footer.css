@@ -55,6 +55,12 @@
     color: #000;
 }
 
+.footer-column-centered {
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+}
+
 .footer-brand-large {
     text-align: center;
     margin: 4rem 0;

@@ -1,5 +1,5 @@
 .director-section {
-    padding: 8rem 0;
+    padding: 4rem 2rem;
     background-color: #f9f9f9;
     overflow: hidden;
 }
@@ -7,13 +7,16 @@
 .director-container {
     display: flex;
     align-items: center;
-    gap: 5rem;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .director-image-wrapper {
     flex: 1;
     position: relative;
-    max-width: 500px;
+    max-width: 400px;
 }
 
 .director-backdrop {
@@ -24,6 +27,28 @@
     height: 100%;
     background: var(--color-primary);
     z-index: 1;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: blob 8s ease-in-out infinite;
+}
+
+@keyframes blob {
+
+    0%,
+    100% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+
+    25% {
+        border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+    }
+
+    50% {
+        border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    }
+
+    75% {
+        border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+    }
 }
 
 .director-image {
@@ -31,12 +56,13 @@
     height: auto;
     position: relative;
     z-index: 2;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    object-fit: cover;
+    transition: all 0.3s ease;
 }
 
 .director-image-wrapper:hover .director-image {
-    filter: grayscale(0%);
+    transform: scale(1.02);
 }
 
 .director-content {
@@ -74,11 +100,11 @@
     line-height: 1.8;
     color: #555;
     margin-bottom: 1.5rem;
+    text-align: justify;
 }
 
 .director-signature {
     font-family: 'Oswald', cursive;
-    /* Using Oswald as a placeholder for signature style */
     font-size: 2rem;
     color: var(--color-text);
     margin-top: 2rem;
@@ -89,6 +115,7 @@
     .director-container {
         flex-direction: column;
         gap: 3rem;
+        padding: 0 1rem;
     }
 
     .director-image-wrapper {

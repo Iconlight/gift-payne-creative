@@ -1,6 +1,17 @@
-.services-luxury {
+.services-gallery-wrapper {
     background-color: #fff;
     padding-top: 6rem;
+}
+
+/* =========================================
+   Desktop Layout Styles
+   ========================================= */
+.services-desktop-view {
+    display: block;
+}
+
+.services-mobile-view {
+    display: none;
 }
 
 .services-luxury-header {
@@ -79,22 +90,6 @@
     box-sizing: border-box;
 }
 
-.luxury-mobile-image {
-    display: none;
-    /* Hidden on desktop */
-    width: 100%;
-    height: 300px;
-    margin-bottom: 2rem;
-    border-radius: 0.5rem;
-    overflow: hidden;
-}
-
-.luxury-mobile-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .luxury-service-content {
     max-width: 500px;
 }
@@ -122,37 +117,102 @@
     line-height: 1.8;
     color: #555;
     font-weight: 300;
+    text-align: justify;
 }
 
+/* =========================================
+   Mobile Parallax Styles
+   ========================================= */
+.mobile-parallax-container {
+    position: relative;
+    height: 400vh;
+    /* Taller for better scroll feel on mobile */
+}
+
+.mobile-parallax-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.mobile-parallax-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    overflow: hidden;
+    transform-origin: center center;
+}
+
+.mobile-parallax-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mobile-parallax-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mobile-parallax-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+}
+
+.mobile-parallax-content {
+    width: 100%;
+    color: #fff;
+    padding-bottom: 4rem;
+    /* Extra padding for mobile bottom bars */
+}
+
+.mobile-parallax-subtitle {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.mobile-parallax-title {
+    font-size: 2.5rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    margin: 0 0 1rem;
+    line-height: 1;
+}
+
+.mobile-parallax-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.95;
+    text-align: justify;
+}
+
+/* =========================================
+   Media Queries
+   ========================================= */
 @media (max-width: 1024px) {
-    .services-luxury-container {
-        display: block;
-    }
-
-    .services-luxury-images {
+    .services-desktop-view {
         display: none;
-        /* Hide sticky images on mobile */
     }
 
-    .services-luxury-list {
-        width: 100%;
-        padding: 0 1.5rem 4rem;
-    }
-
-    .luxury-service-item {
-        min-height: auto;
-        padding: 4rem 0;
-        border-bottom: 1px solid #eee;
+    .services-mobile-view {
         display: block;
-        /* Reset flex */
-    }
-
-    .luxury-mobile-image {
-        display: block;
-        /* Show on mobile */
-    }
-
-    .luxury-service-content {
-        max-width: 100%;
     }
 }

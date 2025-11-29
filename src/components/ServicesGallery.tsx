@@ -1,53 +1,74 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import './ServicesGallery.css';
 
-const services = [
+import imgDocumentary from '../assets/images/IMG20231002114006.jpg';
+import imgLiveShow from '../assets/images/IMG20231102181252.jpg';
+import imgCommercial from '../assets/images/IMG20220128092811.jpg';
+import imgMusicVideo from '../assets/images/IMG20210625174528.jpg';
+import imgPhotography from '../assets/images/IMG_5713.jpg';
+import imgBrand from '../assets/images/IMG20231028150958.jpg';
+
+interface Service {
+    title: string;
+    subtitle: string;
+    description: string;
+    image: string;
+    color: string;
+}
+
+const services: Service[] = [
     {
         title: "DOCUMENTARY FILMMAKING",
         subtitle: "REAL STORIES",
         description: "We delve deep into the heart of the matter, capturing raw emotions and untold stories. Our documentaries are not just films; they are experiences that provoke thought and inspire change.",
-        image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200&h=800&fit=crop",
+        image: imgDocumentary,
         color: "var(--color-primary)"
     },
     {
         title: "LIVE SHOW PRODUCTION",
         subtitle: "BROADCAST QUALITY",
         description: "From multi-camera setups to live streaming, we bring the energy of live events to screens everywhere. We handle the technical complexities so you can focus on the show.",
-        image: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=1200&h=800&fit=crop",
+        image: imgLiveShow,
         color: "var(--color-secondary)"
     },
     {
         title: "COMMERCIAL ADS",
         subtitle: "BRAND IMPACT",
         description: "We create high-octane commercials that cut through the noise. Bold visuals, dynamic editing, and compelling narratives that drive your brand message home.",
-        image: "https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?w=1200&h=800&fit=crop",
+        image: imgCommercial,
         color: "var(--color-accent)"
     },
     {
         title: "MUSIC VIDEOS",
         subtitle: "VISUAL RHYTHM",
         description: "Translating sound into sight. We collaborate with artists to create visual masterpieces that amplify their music and define their aesthetic.",
-        image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200&h=800&fit=crop",
+        image: imgMusicVideo,
         color: "var(--color-neon-green)"
     },
     {
         title: "PHOTOGRAPHY",
         subtitle: "CAPTURING MOMENTS",
         description: "From high-fashion shoots to corporate events, our photography captures the essence of the moment with clarity and artistic flair.",
-        image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&h=800&fit=crop",
+        image: imgPhotography,
         color: "var(--color-primary)"
     },
     {
         title: "BRAND STORYTELLING",
         subtitle: "NARRATIVE POWER",
         description: "We help brands find their voice and tell their story in a way that resonates. Authentic, compelling, and unforgettable.",
-        image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&h=800&fit=crop",
+        image: imgBrand,
         color: "var(--color-secondary)"
     }
 ];
 
-const ServiceSection = ({ service, index, setActiveIndex }) => {
+interface ServiceSectionProps {
+    service: Service;
+    index: number;
+    setActiveIndex: (index: number) => void;
+}
+
+const ServiceSection: React.FC<ServiceSectionProps> = ({ service, index, setActiveIndex }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { margin: "-50% 0px -50% 0px" });
 
@@ -59,11 +80,6 @@ const ServiceSection = ({ service, index, setActiveIndex }) => {
 
     return (
         <div ref={ref} className="luxury-service-item">
-            {/* Mobile Image - Visible only on mobile */}
-            <div className="luxury-mobile-image">
-                <img src={service.image} alt={service.title} />
-            </div>
-
             <div className="luxury-service-content">
                 <span className="luxury-service-subtitle" style={{ color: service.color }}>
                     0{index + 1} — {service.subtitle}
@@ -75,42 +91,110 @@ const ServiceSection = ({ service, index, setActiveIndex }) => {
     );
 };
 
+const MobileParallaxGallery = () => {
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    });
+
+    return (
+        <div ref={containerRef} className="mobile-parallax-container">
+            <div className="mobile-parallax-sticky">
+                {services.map((service, index) => {
+                    const start = index / services.length;
+                    const end = (index + 1) / services.length;
+
+                    const scale = useTransform(
+                        scrollYProgress,
+                        [start, end],
+                        [1, 0.8]
+                    );
+
+                    const opacity = useTransform(
+                        scrollYProgress,
+                        [start, end - 0.1, end],
+                        [1, 1, 0]
+                    );
+
+                    return (
+                        <motion.div
+                            key={index}
+                            className="mobile-parallax-card"
+                            style={{
+                                scale,
+                                opacity,
+                                zIndex: services.length - index,
+                            }}
+                        >
+                            <div className="mobile-parallax-image">
+                                <img src={service.image} alt={service.title} />
+                            </div>
+                            <div className="mobile-parallax-overlay">
+                                <div className="mobile-parallax-content">
+                                    <span className="mobile-parallax-subtitle" style={{ color: service.color }}>
+                                        {service.subtitle}
+                                    </span>
+                                    <h3 className="mobile-parallax-title">{service.title}</h3>
+                                    <p className="mobile-parallax-description">{service.description}</p>
+                                </div>
+                            </div>
+                        </motion.div>
+                    );
+                })}
+            </div>
+        </div>
+    );
+};
+
 const ServicesGallery = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <section className="services-luxury">
-            <div className="services-luxury-header">
-                <span className="services-luxury-label">OUR EXPERTISE</span>
-                <h2 className="services-luxury-heading">WHAT WE DO</h2>
+        <section className="services-gallery-wrapper" id="services">
+            {/* Desktop Layout - Calm & Luxurious */}
+            <div className="services-desktop-view">
+                <div className="services-luxury-header">
+                    <span className="services-luxury-label">OUR EXPERTISE</span>
+                    <h2 className="services-luxury-heading">WHAT WE DO</h2>
+                </div>
+
+                <div className="services-luxury-container">
+                    <div className="services-luxury-list">
+                        {services.map((service, index) => (
+                            <ServiceSection
+                                key={index}
+                                service={service}
+                                index={index}
+                                setActiveIndex={setActiveIndex}
+                            />
+                        ))}
+                    </div>
+
+                    <div className="services-luxury-images">
+                        {services.map((service, index) => (
+                            <motion.div
+                                key={index}
+                                className="luxury-image-wrapper"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: activeIndex === index ? 1 : 0 }}
+                                transition={{ duration: 0.7, ease: "easeInOut" }}
+                            >
+                                <img src={service.image} alt={service.title} />
+                                <div className="luxury-image-overlay" />
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
             </div>
 
-            <div className="services-luxury-container">
-                <div className="services-luxury-list">
-                    {services.map((service, index) => (
-                        <ServiceSection
-                            key={index}
-                            service={service}
-                            index={index}
-                            setActiveIndex={setActiveIndex}
-                        />
-                    ))}
+            {/* Mobile Layout - Parallax Stack */}
+            <div className="services-mobile-view">
+                <div className="services-luxury-header">
+                    <span className="services-luxury-label">OUR EXPERTISE</span>
+                    <h2 className="services-luxury-heading">WHAT WE DO</h2>
                 </div>
-
-                <div className="services-luxury-images">
-                    {services.map((service, index) => (
-                        <motion.div
-                            key={index}
-                            className="luxury-image-wrapper"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: activeIndex === index ? 1 : 0 }}
-                            transition={{ duration: 0.7, ease: "easeInOut" }}
-                        >
-                            <img src={service.image} alt={service.title} />
-                            <div className="luxury-image-overlay" />
-                        </motion.div>
-                    ))}
-                </div>
+                <MobileParallaxGallery />
             </div>
         </section>
     );

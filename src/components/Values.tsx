@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Shield, Lightbulb, Sparkles, Heart, TrendingUp } from 'lucide-react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import './Values.css';
+import valuesImage from '../assets/images/IMG_5167.jpg';
 
 export default function ValuesSection() {
     const sectionRef = useRef<HTMLDivElement>(null);
@@ -74,7 +75,7 @@ export default function ValuesSection() {
     ];
 
     return (
-        <section ref={sectionRef} className="values-section">
+        <section ref={sectionRef} className="values-section" id="about">
             {/* Decorative background elements */}
             <motion.div className="values-bg-circle values-bg-circle-1" style={{ y: y1 }} />
             <motion.div className="values-bg-circle values-bg-circle-2" style={{ y: y2 }} />
@@ -130,7 +131,7 @@ export default function ValuesSection() {
                                 whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
                             >
                                 <img
-                                    src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=1000&fit=crop"
+                                    src={valuesImage}
                                     alt="Creative Team"
                                     className="values-image"
                                 />

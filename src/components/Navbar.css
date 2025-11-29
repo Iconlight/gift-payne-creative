@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 9999;
     padding: 1.5rem 2rem;
     transition: all 0.3s ease;
     background: transparent;
@@ -17,6 +17,12 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
+.navbar.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
 .navbar-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -26,15 +32,14 @@
 }
 
 .logo a {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--color-text);
+    display: flex;
+    align-items: center;
 }
 
-.logo .dot {
-    color: var(--color-primary);
+.logo-image {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
 }
 
 .desktop-menu {

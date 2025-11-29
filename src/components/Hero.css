@@ -103,6 +103,34 @@
     transform: translateY(-2px);
 }
 
+.hero-rotating-text {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -2px;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-rotating-word {
+    overflow: hidden;
+    padding-bottom: 1rem;
+}
+
+.hero-rotating-word:nth-child(odd) {
+    color: #fff;
+    -webkit-text-stroke: 1px rgba(255, 215, 0, 0.3);
+}
+
+.hero-rotating-word:nth-child(even) {
+    color: var(--color-primary);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+}
+
 @media (max-width: 768px) {
     .hero-title {
         font-size: 3.5rem;

@@ -2,6 +2,17 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { ZoomParallax } from './ZoomParallax';
 
+import { TextRotate } from './ui/text-rotate';
+import './Hero.css';
+
+import showreelVideo from '../assets/images/RONALD MWAROGOS SHOWREEL - ronald mwarogo (720p, h264).webm';
+import img2 from '../assets/images/IMG20220221101126.jpg';
+import img3 from '../assets/images/IMG20231002140028.jpg';
+import img4 from '../assets/images/IMG20231028144732.jpg';
+import img5 from '../assets/images/IMG20231102181248.jpg';
+import img6 from '../assets/images/IMG20231102181542.jpg';
+import img7 from '../assets/images/IMG20231115114642.jpg';
+
 const Hero = () => {
     const containerRef = useRef(null);
 
@@ -16,37 +27,38 @@ const Hero = () => {
 
     const images = [
         {
-            src: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&h=800&fit=crop',
-            alt: 'Film production',
+            src: showreelVideo,
+            alt: 'Showreel',
+            isVideo: true,
         },
         {
-            src: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200&h=800&fit=crop',
+            src: img2,
             alt: 'Cinema camera',
         },
         {
-            src: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&h=800&fit=crop',
+            src: img3,
             alt: 'Film set',
         },
         {
-            src: 'https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?w=1200&h=800&fit=crop',
+            src: img4,
             alt: 'Video production',
         },
         {
-            src: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200&h=800&fit=crop',
+            src: img5,
             alt: 'Recording studio',
         },
         {
-            src: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&h=800&fit=crop',
+            src: img6,
             alt: 'Professional camera',
         },
         {
-            src: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&h=800&fit=crop',
+            src: img7,
             alt: 'Film crew',
         },
     ];
 
     return (
-        <div ref={containerRef} style={{ position: 'relative' }}>
+        <div ref={containerRef} id="hero-parallax" style={{ position: 'relative' }}>
             {/* Hero Content Overlay - Appears at the end */}
             <div
                 style={{
@@ -72,22 +84,32 @@ const Hero = () => {
                         maxWidth: '1200px',
                     }}
                 >
-                    <motion.h1
+                    <motion.div
                         style={{
                             opacity: textOpacity,
                             y: textY,
-                            fontSize: 'clamp(3rem, 8vw, 6rem)',
-                            fontFamily: 'var(--font-display)',
-                            fontWeight: 700,
-                            lineHeight: 0.9,
                             marginBottom: '2rem',
-                            letterSpacing: '-2px',
-                            color: '#fff',
                         }}
                     >
-                        CREATE <span style={{ color: 'transparent', WebkitTextStroke: '2px white' }}>GREATNESS</span>
-                        <br /> TOGETHER
-                    </motion.h1>
+                        <TextRotate
+                            texts={[
+                                "Trust & Reliability",
+                                "Obsessive Curiosity",
+                                "Making Magic Happen",
+                                "Authenticity",
+                                "Going Above & Beyond"
+                            ]}
+                            mainClassName="hero-rotating-text"
+                            staggerFrom="last"
+                            initial={{ y: "40%", opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: "-40%", opacity: 0 }}
+                            staggerDuration={0.05}
+                            splitLevelClassName="hero-rotating-word"
+                            transition={{ type: "spring", damping: 24, stiffness: 260 }}
+                            rotationInterval={3000}
+                        />
+                    </motion.div>
 
                     <motion.p
                         style={{

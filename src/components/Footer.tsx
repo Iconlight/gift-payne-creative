@@ -1,5 +1,3 @@
-import React from 'react';
-import { Instagram, Twitter, Linkedin, Facebook } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
@@ -12,19 +10,11 @@ const Footer = () => {
                     </div>
 
                     <div className="footer-links-row">
-                        <div className="footer-column">
+                        <div className="footer-column footer-column-centered">
                             <h4>Contact</h4>
-                            <a href="mailto:hello@giftpayne.com">hello@giftpayne.com</a>
-                            <a href="tel:+254700000000">+254 700 000 000</a>
+                            <a href="mailto:giftpaynekenya@gmail.com">giftpaynekenya@gmail.com</a>
+                            <a href="tel:+254775303909">+254 775 303 909</a>
                             <a href="#">Nairobi, Kenya</a>
-                        </div>
-
-                        <div className="footer-column">
-                            <h4>Social</h4>
-                            <a href="#">Instagram</a>
-                            <a href="#">Twitter</a>
-                            <a href="#">LinkedIn</a>
-                            <a href="#">Facebook</a>
                         </div>
                     </div>
                 </div>

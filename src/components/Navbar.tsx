@@ -1,25 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../assets/images/logo.png';
 import './Navbar.css';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [visible, setVisible] = useState(false);
 
     useEffect(() => {
+        let ticking = false;
+
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const showThreshold = 100;
+                    setScrolled(window.scrollY > 50);
+                    setVisible(window.scrollY > showThreshold);
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
+
+        handleScroll(); // Check on mount
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (
-        <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+        <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${!visible ? 'hidden' : ''}`}>
             <div className="navbar-container">
                 <div className="logo">
-                    <a href="#">GIFT PAYNE<span className="dot">.</span></a>
+                    <a href="#"><img src={logo} alt="Gift Payne" className="logo-image" /></a>
                 </div>
 
                 <div className="desktop-menu">
