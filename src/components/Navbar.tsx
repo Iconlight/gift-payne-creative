@@ -38,10 +38,10 @@ const Navbar = () => {
 
                 <div className="desktop-menu">
                     <a href="#services">Services</a>
-                    <a href="#portfolio">Portfolio</a>
-                    <a href="#about">About</a>
+                    <a href="#values">Our Values</a>
+                    <a href="#director">Director</a>
                     <a href="#contact">Contact</a>
-                    <button className="cta-button">LET'S TALK</button>
+                    <a href="mailto:giftpaynekenya@gmail.com" className="cta-button">LET'S TALK</a>
                 </div>
 
                 <div className="mobile-menu-toggle" onClick={() => setIsOpen(!isOpen)}>
@@ -58,10 +58,10 @@ const Navbar = () => {
                         exit={{ opacity: 0, y: -20 }}
                     >
                         <a href="#services" onClick={() => setIsOpen(false)}>Services</a>
-                        <a href="#portfolio" onClick={() => setIsOpen(false)}>Portfolio</a>
-                        <a href="#about" onClick={() => setIsOpen(false)}>About</a>
+                        <a href="#values" onClick={() => setIsOpen(false)}>Our Values</a>
+                        <a href="#director" onClick={() => setIsOpen(false)}>Director</a>
                         <a href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
-                        <button className="cta-button mobile" onClick={() => setIsOpen(false)}>LET'S TALK</button>
+                        <a href="mailto:giftpaynekenya@gmail.com" className="cta-button mobile" onClick={() => setIsOpen(false)}>LET'S TALK</a>
                     </motion.div>
                 )}
             </AnimatePresence>

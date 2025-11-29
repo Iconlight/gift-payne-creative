@@ -6,7 +6,7 @@ import directorImage from '../assets/images/Hellen Maina.png';
 
 const Director = () => {
     return (
-        <section className="director-section">
+        <section className="director-section" id="director">
             <div className="container director-container">
                 <motion.div
                     className="director-image-wrapper"

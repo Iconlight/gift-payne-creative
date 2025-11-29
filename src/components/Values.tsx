@@ -75,7 +75,7 @@ export default function ValuesSection() {
     ];
 
     return (
-        <section ref={sectionRef} className="values-section" id="about">
+        <section ref={sectionRef} className="values-section" id="values">
             {/* Decorative background elements */}
             <motion.div className="values-bg-circle values-bg-circle-1" style={{ y: y1 }} />
             <motion.div className="values-bg-circle values-bg-circle-2" style={{ y: y2 }} />
