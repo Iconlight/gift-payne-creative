@@ -1,7 +1,7 @@
 .newsletter {
     padding: 4rem 2rem;
-    background: var(--color-primary);
-    color: #000;
+    background: transparent;
+    color: #fff;
     text-align: center;
 }
 
@@ -13,7 +13,7 @@
 .newsletter h2 {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
-    color: #000;
+    color: #fff;
 }
 
 .newsletter h2 .highlight {
@@ -40,12 +40,12 @@
 .newsletter-form textarea {
     width: 100%;
     padding: 1.2rem;
-    border: 3px solid #000;
+    border: 3px solid #fff;
     background: transparent;
     font-family: var(--font-main);
     font-weight: 600;
     font-size: 1rem;
-    color: #000;
+    color: #fff;
 }
 
 .newsletter-form textarea {
@@ -55,7 +55,7 @@
 
 .newsletter-form input::placeholder,
 .newsletter-form textarea::placeholder {
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .newsletter-form button {
@@ -64,13 +64,13 @@
     color: #fff;
     font-weight: 700;
     font-size: 1rem;
-    border: 3px solid #000;
+    border: 3px solid #fff;
     transition: all 0.3s ease;
 }
 
 .newsletter-form button:hover {
     background: transparent;
-    color: #000;
+    color: #fff;
 }
 
 @media (max-width: 768px) {
@@ -86,6 +86,7 @@
         width: 100%;
     }
 }
+
 .form-status {
     margin-top: 1rem;
     font-weight: 600;

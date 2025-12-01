@@ -9,7 +9,7 @@ import showreelVideo from '../assets/images/RONALD MWAROGOS SHOWREEL - ronald mw
 import img2 from '../assets/images/IMG20220221101126.jpg';
 import img3 from '../assets/images/IMG20231002140028.jpg';
 import img4 from '../assets/images/IMG20231028144732.jpg';
-import img5 from '../assets/images/IMG20231102181248.jpg';
+import img5 from '../assets/images/IMG20210625153910.jpg';
 import img6 from '../assets/images/IMG20231102181542.jpg';
 import img7 from '../assets/images/IMG20231115114642.jpg';
 

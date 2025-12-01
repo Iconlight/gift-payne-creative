@@ -1,5 +1,6 @@
 .footer {
-    background: #ffffff;
+    background: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 4rem 2rem 2rem;
     border-top: 1px solid #e0e0e0;
 }
@@ -20,7 +21,7 @@
 
 .footer-tagline p {
     font-size: 1rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.8);
     margin: 0;
 }
 
@@ -38,21 +39,21 @@
 .footer-column h4 {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #000;
+    color: #fff;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .footer-column a {
-    color: #666;
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.95rem;
     transition: color 0.2s;
     text-decoration: none;
 }
 
 .footer-column a:hover {
-    color: #000;
+    color: #fff;
 }
 
 .footer-column-centered {
@@ -70,7 +71,7 @@
     font-size: clamp(4rem, 12vw, 10rem);
     font-family: var(--font-display);
     font-weight: 700;
-    color: #000;
+    color: #fff;
     margin: 0;
     line-height: 1;
     letter-spacing: -0.02em;

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Shield, Lightbulb, Sparkles, Heart, TrendingUp } from 'lucide-react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView, type Variants } from 'framer-motion';
 import './Values.css';
 import valuesImage from '../assets/images/IMG_5167.jpg';
 
@@ -16,7 +16,7 @@ export default function ValuesSection() {
     const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
     const y2 = useTransform(scrollYProgress, [0, 1], [0, 50]);
 
-    const containerVariants = {
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -27,7 +27,7 @@ export default function ValuesSection() {
         },
     };
 
-    const itemVariants = {
+    const itemVariants: Variants = {
         hidden: { y: 20, opacity: 0 },
         visible: {
             y: 0,
@@ -188,7 +188,7 @@ interface ValueItemProps {
     icon: React.ReactNode;
     title: string;
     description: string;
-    variants: any;
+    variants: Variants;
     delay: number;
     direction: 'left' | 'right' | 'center';
 }

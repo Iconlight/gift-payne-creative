@@ -1,5 +1,5 @@
 .services-gallery-wrapper {
-    background-color: #fff;
+    background-color: transparent;
     padding-top: 6rem;
 }
 
@@ -109,13 +109,13 @@
     font-weight: 700;
     margin: 0 0 2rem;
     line-height: 1.1;
-    color: #000;
+    color: #fff;
 }
 
 .luxury-service-description {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #555;
+    color: rgba(255, 255, 255, 0.8);
     font-weight: 300;
     text-align: justify;
 }

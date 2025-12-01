@@ -1,6 +1,8 @@
+@import "tailwindcss";
+
 :root {
-  --color-bg: #ffffff;
-  --color-text: #0a0a0a;
+  --color-bg: #000000;
+  --color-text: #ffffff;
   --color-primary: #FFD700;
   --color-secondary: #FF0055;
   --color-accent: #7000FF;
@@ -8,6 +10,28 @@
 
   --font-main: 'Inter', sans-serif;
   --font-display: 'Oswald', sans-serif;
+
+  /* Shadcn Variables */
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 3%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 3%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 47.9 100% 50%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 340 100% 50%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 0 0% 15%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 47.9 100% 50%;
+  --radius: 0.5rem;
 }
 
 * {
@@ -18,6 +42,9 @@
 
 html {
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 body {
@@ -26,6 +53,9 @@ body {
   color: var(--color-text);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
 }
 
 h1,

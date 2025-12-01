@@ -40,9 +40,9 @@ const services: Service[] = [
         color: "var(--color-accent)"
     },
     {
-        title: "MUSIC VIDEOS",
-        subtitle: "VISUAL RHYTHM",
-        description: "Translating sound into sight. We collaborate with artists to create visual masterpieces that amplify their music and define their aesthetic.",
+        title: "REALITY SHOWS",
+        subtitle: "UNSCRIPTED DRAMA",
+        description: "We capture authentic human moments and craft compelling narratives that keep audiences hooked. From concept to post-production, we create reality content that resonates.",
         image: imgMusicVideo,
         color: "var(--color-neon-green)"
     },

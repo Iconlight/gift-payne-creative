@@ -1,6 +1,6 @@
 .value-props {
     padding: 4rem 2rem;
-    background-color: #fff;
+    background-color: transparent;
     position: relative;
 }
 
@@ -35,7 +35,7 @@
 
 .value-props-header p {
     font-size: 1.2rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.8);
     max-width: 600px;
     margin: 0 auto;
 }
@@ -54,25 +54,26 @@
 }
 
 .value-prop-card:hover {
-    border-color: #eee;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.1);
     transform: translateY(-5px);
 }
 
 .prop-icon {
-    color: var(--color-text);
-    margin-bottom: 1.5rem;
-    display: inline-flex;
-    padding: 1.5rem;
-    background: #f5f5f5;
+    background: var(--color-primary);
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    color: #000;
     transition: all 0.3s ease;
 }
 
 .value-prop-card:hover .prop-icon {
-    background: var(--color-primary);
-    color: #000;
-    transform: rotate(10deg);
+    transform: rotate(10deg) scale(1.1);
 }
 
 .value-prop-card h3 {
@@ -82,9 +83,8 @@
 }
 
 .value-prop-card p {
-    color: #666;
+    color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
-    text-align: justify;
 }
 
 @media (max-width: 768px) {

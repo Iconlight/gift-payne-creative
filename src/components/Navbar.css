@@ -10,11 +10,11 @@
 }
 
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
     padding: 1rem 2rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .navbar.hidden {
@@ -69,14 +69,14 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     border: 2px solid var(--color-primary);
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     text-decoration: none;
     display: inline-block;
 }
 
 .cta-button:hover {
     background: transparent;
-    color: #fff;
+    color: var(--color-primary);
     border: 2px solid var(--color-primary);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
@@ -93,13 +93,13 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background: #ffffff;
+    background: rgba(0, 0, 0, 0.95);
     padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .mobile-menu a {
