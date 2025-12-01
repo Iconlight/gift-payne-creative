@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import './ServicesGallery.css';
 
-import imgDocumentary from '../assets/images/IMG20231002114006.jpg';
+import imgDocumentary from '../assets/images/IMG20210625153910.jpg';
 import imgLiveShow from '../assets/images/IMG20231102181252.jpg';
 import imgCommercial from '../assets/images/IMG20220128092811.jpg';
 import imgMusicVideo from '../assets/images/IMG20210625174528.jpg';

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Shield, Lightbulb, Sparkles, Heart, TrendingUp } from 'lucide-react';
 import { motion, useScroll, useTransform, useInView, type Variants } from 'framer-motion';
 import './Values.css';
-import valuesImage from '../assets/images/IMG_5167.jpg';
+import valuesImage from '../assets/images/IMG20231102181248.jpg';
 
 export default function ValuesSection() {
     const sectionRef = useRef<HTMLDivElement>(null);
